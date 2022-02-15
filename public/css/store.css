@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.product {
+    display: flex;
+    min-width: 20vw;
+    min-height: 25vh;
+    padding: 3vh;
+    margin-top: 3vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    box-shadow: 0 0rem 1rem rgba(0, 0, 0, 0.26);
+}
+
+
+.product img {
+    max-height: 10vh;
+    max-width: 10vw;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.product h1, h3 {
+    text-align: center;
+}
+.product {
+    display: inline-block;
+}
+
+.product button {
+    margin-top: 1vh;
+    margin-left: 1rem;
+    margin-bottom: 1vh;
+    padding: .5rem 1rem;
+    background-color: mediumpurple;
+    min-width: 5vw;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons button:hover {
+    cursor: pointer;
+}
+.buttons #edit {
+    min-width: 4vw;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#details {
+    min-width: 35vw;
+    min-height: 35vh;
+    margin-left: 32vw;
+    margin-right: 32vw;
+    margin-top: 23vh;
+}
+
+#back {
+    margin-top: 4vh;
+}
+
+#detail {
+    min-height: 20vh;
+    min-width: 15vw;
+}
+
+h3 {
+    margin-top: 4vh;
+}
+
+h2 {
+    margin-top: 3vh;
+    text-align: center;
+}

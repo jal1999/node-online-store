@@ -1,0 +1,23 @@
+extends layouts/main-layout.pug
+block styles
+    link(rel="stylesheet" href="/css/store.css")
+block content
+    if (!products || products.length === 0)
+        h1 there are no products
+    else
+        each product in products
+            .product.card
+                h1 #{product.title}
+                img(src=product.imageUrl)
+                h3 $#{product.price}
+                .buttons
+                    button
+                        a(href='/product-details/' + product.id) Details
+                    if (loggedIn)
+                        form(action='/add-to-cart/' + product.id method='POST')
+                            button(type='submit') Add to cart
+                    else
+                        button
+                            a(href='/login') Add to cart
+
+

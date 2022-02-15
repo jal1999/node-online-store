@@ -1,0 +1,17 @@
+extends layouts/main-layout.pug
+block styles
+    link(rel='stylesheet' href='/css/store.css')
+block content
+    if (products.length === 0)
+        h1 None
+    else
+        each product in products
+            .product.card
+                h1 #{product.title}
+                img(src=product.imageUrl)
+                h3 $#{product.price}
+                .buttons
+                    button#edit
+                        a(href='/admin/edit/' + product.id) Edit
+                    form(action='/admin/delete/' + product.id method='POST')
+                        button#delete(type='submit') Delete

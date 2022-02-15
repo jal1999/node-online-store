@@ -1,0 +1,23 @@
+extends layouts/main-layout.pug
+block styles
+    link(rel='stylesheet' href='/css/cart.css')
+block content
+    if !products || products.length === 0
+        h1 there are no products
+    else
+        -let n = 0;
+        while n < products.length
+            .cartItems
+                .product.card
+                        h1 #{products[n].title}
+                        h3 $#{products[n].price}
+                        h3 Quantity: #{quantities[n]}
+                        form(action='/delete-from-cart/' + products[n].id method='POST')
+                            .buttons
+                                button(type='submit') Delete
+            - n = n + 1
+        form(action='/order/' + user.id method='POST')
+            each prod in products
+                input(type='hidden' value=prod.id)
+            .submit
+                button(type='submit') Complete Order

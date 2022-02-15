@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+.form {
+    margin-top: 20vh;
+    display: flex;
+    justify-content: center;
+}
+label, input {
+    display: block;
+}
+
+form button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vh;
+    padding: .5vh 1vh;
+    background-color: mediumpurple;
+}
+
+input {
+    border: none;
+    border-bottom: .1rem solid #000000;
+    outline: none;
+    padding: 1vw;
+}
+
+form {
+    padding: 5vh;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    display: block;
+    margin-left: 3vw;
+}
+
+button:hover {
+    cursor: pointer;
+}

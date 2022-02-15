@@ -1,0 +1,7 @@
+extends layouts/main-layout.pug
+block styles
+    link(rel='stylesheet' href='/css/your-orders.css')
+block content
+    .main
+        for order in orders
+            h1 #{order.totalCost}

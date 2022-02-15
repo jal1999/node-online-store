@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+    head
+        title Store
+        link(rel='stylesheet' href='/css/main-styles.css')
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+        block styles
+    body
+        header.main-header
+            nav.main-header__nav
+                    ul.main-header__item-list
+                        li.main-header__item
+                            a.link(href='/') Shop
+                        li.main-header__item(class=!isAuthenticated ? 'hidden' : '')
+                            a.link(href='/admin/add-product') Add Product
+                        li.main-header__item(class=!isAuthenticated ? 'hidden' : '')
+                            a.link(href='/admin/your-products') Your Products
+                        li.main-header__item(class=!isAuthenticated ? 'hidden' : '')
+                            a.link(href='/your-orders') Your Orders
+                        li.main-header__item(class=!isAuthenticated ? 'hidden' : '')
+                            a.link(href='/logout') Log Out
+                        li.main-header__item(class=isAuthenticated ? 'hidden' : '')
+                            a.link(href='/login') Login
+                        li.main-header__item(class=isAuthenticated ? 'hidden': '')
+                            a.link(href='/signup') Signup
+                        button.cart.main-header__item(class=!isAuthenticated ? 'hidden' : '' style='font-size:2rem')
+                            a.link.cart(href='/cart')
+                                i(class='fa fa-shopping-cart')
+        main
+            block content
