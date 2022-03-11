@@ -9,26 +9,21 @@ exports.getSignup = (req, res) => {
     res.render('signup');
 };
 
-exports.postLogin = async (req, res) => {
+exports.postLogin = (req, res) => {
     let currUser;
     const email = req.body.email;
     const password = req.body.password;
     User.findOne({ where: { email: email } })
         .then(user => {
-            console.log('User: ' + user);
             if (user === null) return res.redirect('/signup');
             else {
                 currUser = user;
                 bcrypt.compare(password, user.password)
                     .then(async result => {
-                        console.log('RESULT: ' + result);
-                        if (result) {
-                            console.log('You\re logged in!');
-                            req.session.user = currUser;
-                            req.session.isAuthenticated = true;
-                            return res.redirect('/');
-                        }
-                        else res.redirect('/login');
+                        if (!result) res.redirect('/login'); if (!result) res.redirect('/login');
+                           req.session.user = currUser;
+                           req.session.isAuthenticated = true;
+                           return res.redirect('/');
                     })
             }
         })
@@ -50,8 +45,8 @@ exports.postSignup = (req, res) => {
                     .then((hashedPassword) => {
                         return User.create({ email: req.body.email, password: hashedPassword })
                     })
-                    .then((newUser) => {
-                        newUser.createCart();
+                    .then(async (newUser) => {
+                        await newUser.createCart();
                         req.session.user = newUser;
                         req.session.isAuthenticated = true;
                         res.redirect('/')
